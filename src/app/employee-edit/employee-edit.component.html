@@ -1,0 +1,37 @@
+<form [formGroup]="DD" (submit)="Submit()">
+    First Name:<br>
+    <input name="fname" type="text" formControlName="fname" /><br><br>
+    Last Name:<br>
+    <input name="lname" type="text" formControlName="lname" /><br><br>
+    Email:<br>
+    <input name="email" type="email" formControlName="email" /><br><br>
+    Contact Number:<br>
+    <input name="cnumber" type="text" formControlName="phone" /><br><br>
+    Address:<br>
+    <textarea name="address" formControlName="address" ></textarea><br><br>
+    Username:<br>
+    <input name="uname" type="text" formControlName="uname" /><br><br>
+    Password:<br>
+    <input name="password" type="password" formControlName="password" /><br><br>
+    Gender: <br>
+    <input type="radio" id="male" name="gender" formControlName="gender" value="male" /> Male<br>
+    <input type="radio" id="female" name="gender" formControlName="gender" value="female" /> Female<br><br>
+    Qualifications:<br>
+    <select formControlName="qual" >
+        <option>--Select--</option>
+        <option *ngFor="let i of qualification" value={{i}}>{{i}}</option>
+    </select><br><br>
+    Experience:<br>
+    <select formControlName="exp">
+        <option>--Select--</option>
+        <option *ngFor="let i of experience" value={{i}}>{{i}}</option>
+    </select><br><br>
+    <!-- Coding Languages: <br> -->
+    <!-- <div formControlName="lang"> -->
+        <!-- <div *ngFor="let i of language">
+            <input name="code" type="checkbox" id={{i}} formControlName="lang" value={{i}} (change)="onCheck($event)" /> 
+            <label for={{i}}>{{i}}</label><br>
+        </div> -->
+    <br><br>
+    <button class="btn btn-primary">Submit</button>
+</form>

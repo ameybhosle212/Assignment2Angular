@@ -1,0 +1,77 @@
+<div class="container">
+  <ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" 
+            id="modal-basic-title">
+            Do You Want To Delete it
+        </h4>
+        <button type="button" class="close"
+                aria-label="Close" (click)=
+                "modal.dismiss('Cross click')">
+  
+            <span aria-hidden="true">
+                ×
+            </span>
+        </button>
+    </div>
+    <div class="modal-body" style="margin-left: 320px;">
+        <button (click)="modal.close('save')">Delete</button>
+        <button style="margin-left: 10px;" (click)=
+        "modal.dismiss('Cross click')" >Cancel</button>
+    </div>
+</ng-template>
+  <div class="jumbotron">
+    <h1 *ngIf="value.length === 0">Add Data to see Values Here <a routerLink="add">Link</a></h1>
+  </div>
+    <table border="2" *ngIf="value.length != 0">
+        <tr style="border: 2px solid black;">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Contact No.</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>Gender</th>
+            <th>Qualification</th>
+            <th>Experience</th>
+            <th>Coding Language</th>
+        </tr>
+        <tr style="border: 2px solid black;" *ngFor="let i of  value" >
+            <td>{{i["First_Name"]}}</td>
+            <td>{{i["Last_Name"]}}</td>
+            <td>{{i["Phone_No"]}}</td>
+            <td>{{i["Address"]}}</td>
+            <td>{{i["Email"]}}</td>
+            <td>{{i["uname"]}}</td>
+            <td>{{i["password"]}}</td>
+            <td>{{i["gender"]}}</td>
+            <td>{{i["Qualification"]}}</td>
+            <td>{{i["Experience"]}}</td>
+            <td>{{i["Coding_Lang"]}}</td>
+            <td><button class="btn btn-primary"><a style="color: aliceblue;text-decoration: none;" [routerLink]="['edit',i['id']]">Edit</a></button></td>
+            <td><button class="btn btn-danger" (click)="open(content,i['id'])">Delete</button></td>
+        </tr>
+    </table>
+    <!-- <ng-template #content let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')">Date</button>
+        </div> -->
+        <!-- <div class="modal-body"> -->
+          <!-- <form>
+            <div class="mb-3">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
+              </div>
+            </div>
+          </form> -->
+        <!-- </div> -->
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+        </div> -->
+      <!-- </ng-template> -->
+      <!-- <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Launch demo modal</button> -->
+</div>
